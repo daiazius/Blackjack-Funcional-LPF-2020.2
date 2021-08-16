@@ -1,0 +1,3 @@
+# Blackjack-Funcional
+Paia.
+é
