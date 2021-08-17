@@ -1,3 +1,6 @@
+import kotlinx.browser.*
+import org.w3c.dom.*
+
 fun main(){
 
 }
@@ -9,5 +12,5 @@ fun darCartas(){
         println("ihhh passou vergoinha em")
         return;
     }
-    elemento.innerHTML += Voce pegou 21 e ganhou confia
+    jogo.innerHTML += Voce pegou 21 e ganhou confia
 }
