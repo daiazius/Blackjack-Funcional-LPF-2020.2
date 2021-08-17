@@ -8,47 +8,56 @@
     <title>Cassino Royale</title>
    
     <style>
+
         body{
             background-color: rgba(0, 0, 0, 85%);
         }
         h1{
             margin:0%;
             text-align:center;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-family: 'Helvetica', 'Arial', sans-serif;
             font-size: 60px;
             color:white;
-            background-color: rgba(256, 0, 0, 75%);
-            
+            background-color: rgba(256, 0, 0, 75%);    
         }
         h2{
             color: rgba(256, 0, 0, 75%);;
             text-align: center;
             font-family: "Comic Sans MS", "Comic Sans", cursive;
             font-size: 24px;
-            margin-bottom: 0;
-            
+            margin-bottom: 10px;  
         }
         .jogo{
-            margin-left: 30%;
-            margin-top: 1%;
-            border: 1px solid rgb(255, 255, 255);
-            width: 250px;
-            padding: 250px;
-            border-radius: 5px;
+            background-color: rgba(0, 256, 0, 30%);
+            width: 50%;
+            margin-left: 25%;
+            height: 500px;
+            border: 1px solid black;
+            display: flex;
+            align-items:center;
+            justify-content: center;
         }
         .descricao{
             color:white;
             margin-left:500px;
             margin-right:500px;
             font-size: 16px;
-            
         }
         p{
             font-family: "Comic Sans MS", "Comic Sans", cursive;
         }
         .botao{
-            
             padding: 20px;
+            margin-top: 40%;
+        }
+        #imagem{
+            width:150px;
+            height:150px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-50px;
+            margin-left:-75px;
         }
 
     </style> 
@@ -59,14 +68,17 @@
     <script src="https://cdn.jsdelivr.net/npm/kotlin@1.5.21/kotlin.min.js"></script>
     <script src="VinteUm.js"></script>
 
-    <h1>O Cassino</h1>
+    <h1>Cassino Royale &#x1F0CF;&#x1F525;</h1>
     
     <h2>Black Jack: 21<hr> </h2>
     
     <div class="descricao"> <p>Blackjack ou Vinte-e-um é um jogo praticado com cartas em casinos e que pode ser jogado com 1 a 8 baralhos de 52 cartas,em que o objetivo é ter mais pontos do que o adversário, mas sem ultrapassar os 21 (caso em que se perde). O dealer só pode pedir até um máximo de 5 cartas ou até chegar ao número 17.</p></div> 
     <h2>Jogar:</h2>
     
-    <div class = "jogo" id="jogo"><button onclick="VinteUm.darCartas()" class="botao">Jogar</button></div>
+    <div class = "jogo" id="jogo">
+       <img src="212.jpg" id="imagem">
+        <button onclick="VinteUm.darCartas()" class="botao">Jogar</button>
+    </div>
 
     
 </body>

@@ -10,7 +10,7 @@ if (typeof kotlin === 'undefined') {
     if (jorje == null) {
       println('ihhh passou vergoinha em');
       return;
-    }jorje.innerHTML = jorje.innerHTML + 'Voce jogou 21 e ganhou confia';
+    }jorje.innerHTML = 'Voce jogou 21 e ganhou confia';
   }
   _.main = main;
   _.darCartas = darCartas;
