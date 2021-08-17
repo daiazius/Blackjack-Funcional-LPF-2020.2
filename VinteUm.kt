@@ -7,10 +7,10 @@ fun main(){
 
 @JsName("darCartas")
 fun darCartas(){
-    val jogo = document.getElementById("jogo")
-    if(jogo==null){
+    val jorje = document.getElementById("jogo")
+    if(jorje==null){
         println("ihhh passou vergoinha em")
         return;
     }
-    jogo.innerHTML += Voce pegou 21 e ganhou confia
+    jorje.innerHTML += "Voce pegou 21 e ganhou confia"
 }
