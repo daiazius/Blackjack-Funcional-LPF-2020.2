@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="fichas-de-cassino.png" type="image/x-icon">
+    <title>Cassino Royale</title>
+   
+    <style>
+        body{
+            background-color: rgba(0, 0, 0, 85%);
+        }
+        h1{
+            margin:0%;
+            text-align:center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-size: 60px;
+            color:white;
+            background-color: rgba(256, 0, 0, 75%);
+            
+        }
+        h2{
+            color: rgba(256, 0, 0, 75%);;
+            text-align: center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-size: 24px;
+            margin-bottom: 0;
+            
+        }
+        .jogo{
+            margin-left: 30%;
+            margin-top: 1%;
+            border: 1px solid rgb(255, 255, 255);
+            width: 250px;
+            padding: 250px;
+            border-radius: 5px;
+        }
+        .descricao{
+            color:white;
+            margin-left:500px;
+            margin-right:500px;
+            font-size: 16px;
+            
+        }
+        p{
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+        .botao{
+            
+            padding: 20px;
+        }
+
+    </style> 
+</head>
+<body>
+
+    <!--- SCRIPT DO KOTLENS-->
+    <script src="https://cdn.jsdelivr.net/npm/kotlin@1.5.21/kotlin.min.js"></script>
+    <script src="VinteUm.js"></script>
+
+    <h1>O Cassino</h1>
+    
+    <h2>Black Jack: 21<hr> </h2>
+    
+    <div class="descricao"> <p>Blackjack ou Vinte-e-um é um jogo praticado com cartas em casinos e que pode ser jogado com 1 a 8 baralhos de 52 cartas,em que o objetivo é ter mais pontos do que o adversário, mas sem ultrapassar os 21 (caso em que se perde). O dealer só pode pedir até um máximo de 5 cartas ou até chegar ao número 17.</p></div> 
+    <h2>Jogar:</h2>
+    
+    <div class = "jogo" id="jogo"><button onclick="VinteUm.darCartas()" class="botao">Jogar</button></div>
+
+    
+</body>
+</html>
