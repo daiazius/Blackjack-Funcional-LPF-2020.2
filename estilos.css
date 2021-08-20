@@ -1,14 +1,38 @@
-#bora{
+#carta{
+    background-image: url(carta.jpg);
     border-style:solid; 
     border-width: 2px; 
     border-radius: 5px; 
-    height:200px; 
-    margin-right:20px; 
-    width: 120px;
+    height:120px; 
+    margin-right:20px;
+    margin-top: 18%; 
+    width: 90px;
 }
 
-#pedro{
+#pedir{
+    position: absolute;
+    margin-top: 20%;
+    margin-right: 10%;
+    height: 40px;  
+    width: 90px;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+}
+#manter{
+    position: absolute;
+    margin-top: 20%;
+    margin-right: -10%;
+    height: 40px;  
+    width: 90px;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+}
 
-    height:200px;  
-    width: 120px;
+#texto-carta{
+    text-align: center; 
+    margin-top: 50%; 
+    color: black;
+    font-weight: bold;
 }

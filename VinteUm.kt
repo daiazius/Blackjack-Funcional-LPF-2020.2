@@ -1,8 +1,18 @@
 import kotlinx.browser.*
 import org.w3c.dom.*
 
+
+val baralhin = Baralho()
+val p1 = Jogador("joao")
+
+
 @JsName("darCartas")
 fun darCartas(){
+
+    p1.maoDoJogador.puxarCarta(2,baralhin.cartas)
+
+    val a:String = p1.maoDoJogador.cartasNaMao.get(0).toString()
+    val b:String = p1.maoDoJogador.cartasNaMao.get(1).toString()
 
     val jorje = document.getElementById("jogo")
 
@@ -10,49 +20,85 @@ fun darCartas(){
         println("ihhh passou vergoinha em")
         return;
     }
-    
-   // val carta = Carta(2,1)
-    
-    val alanturing = Baralho()
-    val sim = Mao()
-    sim.puxarCarta(1,alanturing.cartas)
-    val carta = sim.cartasNaMao.removeFirst()
-    val a:String = carta.toString()
 
     jorje.innerHTML = """
     <link rel="stylesheet" type="text/css" href="estilos.css" media="screen"/>
-    <button id = "pedro" onclick = "VinteUm.pedirCartas()">adiciona</button>    
+    <div id = "carta"><p id = "texto-carta">$a</p></div>
+    <div id = "carta"><p id = "texto-carta">$b</p></div>
+    <button id = "pedir" onclick = "VinteUm.pedirCartas()">Adiciona</button>
+    <button id = "manter" style = "font-size: 14px">Manter</button>     
     """
 }
 
 @JsName("pedirCartas")
 fun pedirCartas(){
+
+    if(baralhin.cartas.isEmpty()){
+        println("baralho vazio")
+        return;
+    }
+
+    p1.maoDoJogador.puxarCarta(1,baralhin.cartas)
+    val a:String = p1.maoDoJogador.cartasNaMao.last().toString()
+    
     val vonNeumann = document.getElementById("jogo")
     if(vonNeumann==null){
         println("ihhh passou vergoinha em")
         return;
     }
     vonNeumann.innerHTML += """
-    <div id = "bora"><p style = "text-align: center"></p></div>
+    <div id = "carta"><p id = "texto-carta">$a</p></div>
     """
-    
+
+    verificinator()
+
 }
 
-class Carta(naipe :Int, numero :Int) {
-    val numero:Int = numero
-    val naipe:Int = naipe
+fun verificinator(){
+    if(p1.maoDoJogador.asNaMao){
+        if(p1.maoDoJogador.somarOTotalcomAs(p1.maoDoJogador.cartasNaMao.size-1) > 21){
+            println("rebentastes ou nao")
+        }
+        else if(p1.maoDoJogador.somarOTotalcomAs(p1.maoDoJogador.cartasNaMao.size-1) == 21){
+        println("vencestes")
+        }
+    }
+    if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) > 21){
+            println("rebentastes")
+        }
+    else if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) == 21){
+        println("vencestes")
+    }
 
-    
+}
+
+
+
+class Carta(val naipe :Int, val numero :Int) {
+
     override fun toString(): String{
         var coisa:String = ""
+        var coisa2:String
+
+        if(numero == 11){
+            coisa2="J"
+        }else if(numero == 12){
+            coisa2="Q"
+        }else if(numero == 13){
+            coisa2="K"
+        }else{
+            coisa2=numero.toString()
+        }
+
         when(naipe){
-            1 -> coisa += "$numero de paus"
-            2 -> coisa += "$numero de ouros"
-            3 -> coisa += "$numero de copas"
-            4 -> coisa += "$numero de espadas" 
+            1 -> coisa += "$coisa2 \n   ♣"
+            2 -> coisa += "$coisa2 \n   ♥"
+            3 -> coisa += "$coisa2 \n   ♦"
+            4 -> coisa += "$coisa2 \n   ♠" 
         }
         return coisa
     }
+    
 
 }
 
@@ -90,17 +136,56 @@ class Baralho(){
 
 class Mao(){
     val cartasNaMao = mutableListOf<Carta>()
+    var asNaMao = false
 
     fun puxarCarta(qntdCartas:Int, cartas:MutableList<Carta>){
         if(qntdCartas == 0){
             return;
         }
         else{
-            //fazer com que a carta va para a mao do jogador ou do dealer
+            //if que verifica se a próxima carta a ser adicionada é um Ás, se for a flag global de asNaMao é true
+            if(cartas[0].numero == 1){
+                asNaMao = true
+            }
             cartasNaMao.add(cartas.removeFirst())
             puxarCarta(qntdCartas-1,cartas)
         }
 
     }
+    
+    fun somarOTotal(n:Int): Int{
+        if(n < 0){
+            return 0
+        }
+        else{
+            if(cartasNaMao[n].numero > 10){
+                return somarOTotal(n-1) + 10
+            }
+          return somarOTotal(n-1) + cartasNaMao[n].numero
+        }
+    
+    }
+    
+    fun somarOTotalcomAs(n:Int): Int{
+        if(n < 0){
+            return 0
+        }
+        else{
+            if(cartasNaMao[n].numero > 10){
+                return somarOTotalcomAs(n-1) + 10
+            }
+            if(cartasNaMao[n].numero == 1){
+                return somarOTotalcomAs(n-1) + 11
+            }
+            return somarOTotalcomAs(n-1) + cartasNaMao[n].numero
+        }
 
+    }
+
+}
+
+class Jogador(val nome:String){
+    val maoDoJogador = Mao()
+    val pontuacao:Int = 0
+    
 }

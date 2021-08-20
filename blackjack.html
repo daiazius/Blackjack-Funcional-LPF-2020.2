@@ -28,7 +28,7 @@
             font-size: 60px;
             color:white;
             background-color: black;
-            padding: 2px; 
+            padding: 10px; 
                
         }
         h2{
@@ -39,7 +39,8 @@
             margin-bottom: 10px;  
         }
         .jogo{
-            background-color:white;
+            background-image: url(i1.jpg);
+            background-size: 100% 100%;
             width: 50%;
             margin-left: 25%;
             height: 500px;
@@ -62,8 +63,19 @@
             font-family: 'Helvetica', 'Arial', sans-serif;
         }
         .botao{
+            background-color: darkred;
+            border: none;
+            border-radius: 50%;
+            color: white;
             padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
             margin-top: 40%;
+            cursor: pointer;
+
         }
         #imagem{
             width:150px;
@@ -75,6 +87,13 @@
             margin-left:-75px;
         }
 
+        #jogar{
+            color:white;
+            font-size: 14px;
+            font-weight: bold;
+            
+        }
+
     </style> 
 </head>
 <body>
@@ -82,7 +101,6 @@
     <!--- SCRIPT DO KOTLENS-->
     <script src="https://cdn.jsdelivr.net/npm/kotlin@1.5.21/kotlin.min.js"></script>
     <script src="VinteUm.js"></script>
-
     <h1>Cassino Royale</h1>
     
     <h2>Black Jack: 21<hr> </h2>
@@ -91,8 +109,8 @@
     <h2>Jogar:</h2>
     
     <div class = "jogo" id="jogo">
-        <img src="212.jpg" id="imagem">
-        <button onclick="VinteUm.darCartas()" class="botao">Jogar</button> 
+        <img src="cards2.gif" id="imagem">
+        <button onclick="VinteUm.darCartas()" class="botao"><p id = "jogar">Jogar</p></button> 
 
     </div>
 
