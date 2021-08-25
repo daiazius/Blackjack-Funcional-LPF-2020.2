@@ -11,8 +11,9 @@ fun darCartas(){
 
     p1.maoDoJogador.puxarCarta(2,baralhin.cartas)
 
-    val a:String = p1.maoDoJogador.cartasNaMao.get(0).toString()
-    val b:String = p1.maoDoJogador.cartasNaMao.get(1).toString()
+    val carta1:String = p1.maoDoJogador.cartasNaMao.get(0).toString()
+    val carta2:String = p1.maoDoJogador.cartasNaMao.get(1).toString()
+    val pont:Int = p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size - 1)
 
     val jorje = document.getElementById("jogo")
 
@@ -23,10 +24,15 @@ fun darCartas(){
 
     jorje.innerHTML = """
     <link rel="stylesheet" type="text/css" href="estilos.css" media="screen"/>
-    <div id = "carta"><p id = "texto-carta">$a</p></div>
-    <div id = "carta"><p id = "texto-carta">$b</p></div>
+    <div id = "cartaDealer"><p id = "texto-carta">$carta1</p></div>
+    <div id = "cartaDealer"><p id = "texto-carta">$carta2</p></div>
+    <div id = "carta"><p id = "texto-carta">$carta1</p></div>
+    <div id = "carta"><p id = "texto-carta">$carta2</p></div>
+
+    <div id = "pontuacao"><p>Pontuação: $pont</p></div>
+    <div id = "pontuacaoDealer"><p>Pontuação: $pont</p></div>
     <button id = "pedir" onclick = "VinteUm.pedirCartas()">Adiciona</button>
-    <button id = "manter" style = "font-size: 14px">Manter</button>     
+    <button id = "manter">Manter</button>     
     """
 }
 
@@ -37,18 +43,24 @@ fun pedirCartas(){
         println("baralho vazio")
         return;
     }
-
+    
     p1.maoDoJogador.puxarCarta(1,baralhin.cartas)
-    val a:String = p1.maoDoJogador.cartasNaMao.last().toString()
+    val carta:String = p1.maoDoJogador.cartasNaMao.last().toString()
+    val pont:Int = p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1)
+    val pontA:Int = p1.maoDoJogador.somarOTotalcomAs(p1.maoDoJogador.cartasNaMao.size-1)
+    
     
     val vonNeumann = document.getElementById("jogo")
+
     if(vonNeumann==null){
         println("ihhh passou vergoinha em")
         return;
     }
     vonNeumann.innerHTML += """
-    <div id = "carta"><p id = "texto-carta">$a</p></div>
+    <div id = "carta"><p id = "texto-carta">$carta</p></div>
     """
+
+    document.getElementById("pontuacao")?.innerHTML = "Pontuação: $pont $pontA";
 
     verificinator()
 
@@ -65,14 +77,20 @@ fun verificinator(){
     }
     if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) > 21){
             println("rebentastes")
+            document.getElementById("pedir")?.remove()
+            document.getElementById("manter")?.remove()
+            document.getElementById("jogo")?.innerHTML += """
+            <div id = "fimDeJogo">REBENTASTES</div>
+            """
         }
     else if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) == 21){
         println("vencestes")
+        document.getElementById("pedir")?.remove()
+        document.getElementById("manter")?.remove()
+        document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: green;">PARABENS OTARIO</div>""" 
     }
 
 }
-
-
 
 class Carta(val naipe :Int, val numero :Int) {
 
@@ -80,7 +98,9 @@ class Carta(val naipe :Int, val numero :Int) {
         var coisa:String = ""
         var coisa2:String
 
-        if(numero == 11){
+        if(numero==1){
+            coisa2="A"
+        }else if(numero == 11){
             coisa2="J"
         }else if(numero == 12){
             coisa2="Q"
