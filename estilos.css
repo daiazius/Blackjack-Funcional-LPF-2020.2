@@ -1,4 +1,10 @@
+* {
+    box-sizing: border-box;
+  }
+
 body{
+    width:100%;
+    height: 1200px;
     background-color: rgba(0, 0, 0, 85%);
     animation-name: example;
     animation-duration: 2s;
@@ -17,7 +23,8 @@ h1{
     font-size: 60px;
     color:white;
     background-color: black;
-    padding: 10px; 
+    padding: 10px;
+    
        
 }
 h2{
@@ -28,7 +35,7 @@ h2{
     margin-bottom: 10px;  
 }
 .jogo{
-
+    position: absolute;
     background-image: url(i1.jpg);
     background-size: 100% 100%;
     width: 50%;
@@ -39,83 +46,120 @@ h2{
     align-items:center;
     justify-content:center;
     
+ 
 }
 .descricao{
+
+    width:50%;
     background-color: rgba(0, 0, 0, 25%);
     border-left: 6px solid red;
     color:white;
-    margin-left:470px;
-    margin-right:470px;
+    margin-left:25%;
     padding: 20px;
     font-size: 16px;
+    text-align: justify;
 }
 p{
+    width: 100%;
+    margin: 0 auto;
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
-.botao{
 
-    background-color: darkred;
+#maoJogador{
+    position: absolute;
+    bottom:18%;
+    width: 70%;
+    height: 30%;
+}
+#maoDealer{
+    position: absolute;
+    display: inline-block;
+    top:13%;
+    width: 70%;
+    height: 30%;
+}
+#botao{
+    position:relative;
+    background: radial-gradient(red, darkred);
     border: 3px solid black;
     border-radius: 50%;
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 3%;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
-    margin-top: 40%;
+    margin-top:25%;
+    margin-right:20%;
     cursor: pointer;
-
+    box-shadow: inset 0 0 0 0 darkred;
+    transition: 0.5s;
+    outline: none;  
 }
+
+#botao:hover{
+    box-shadow: inset 300px 0 0 0 darkorange;
+  }
+
 #imagem{
-    width:150px;
-    height:150px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    margin-top:-50px;
-    margin-left:-75px;
+    position: relative;
+    width:20%;
+    height:30%;
+    left:15%;
+    bottom:20%;
+
 }
 
 #jogar{
     color:white;
     text-shadow: 3px 3px black ;
     font-size: 14px;
-    font-weight: bold;
-    
+    font-weight: bold; 
 }
 
 #carta{
     position: relative;
+    display: inline-block;
     background-image: url(ACarta.jpg);
     border-style:solid; 
     border-width: 2px; 
-    border-radius: 5px; 
-    height:120px; 
+    border-radius: 5px;
+    width: 90px; 
+    height: 120px; 
     margin-right:20px;
-    right:130px;
     top: 20%; 
-    width: 90px;
+
+
 }
 
 #cartaDealer{
-    position: relative;
     background-image: url(ACarta.jpg);
-    border-style:solid; 
+    display: inline-block;
+    position: relative;
+    border-style: solid; 
     border-width: 2px; 
-    border-radius: 5px; 
+    border-radius: 5px;
+    width: 90px; 
     height: 120px; 
     margin-right:20px;
-    bottom: 120px;
-    left:100px;
-    width: 90px;
+
+    
+     
+}
+#cartaDealer2{
+    background-image: url(cartavirada.jpg);
+    display: inline-block;
+    position: absolute;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    width: 90px; 
+    height: 120px; 
+    margin-right:20px; 
 }
 
 #pedir{
     position: absolute;
-    margin-top: 23%;
-    margin-right: 10%;
+    top: 85%;
+    right: 55%;
     height: 40px;  
     width: 90px;
     font-size: 14px;
@@ -124,8 +168,8 @@ p{
 }
 #manter{
     position: absolute;
-    margin-top: 23%;
-    margin-right: -5%;
+    top: 85%;
+    left: 50%;
     height: 40px;  
     width: 90px;
     font-size: 14px;
@@ -143,8 +187,8 @@ p{
 #pontuacao{
     position: absolute;
     background-color: white;
-    margin-top: 23%;
-    margin-right: 35%;
+    top: 85%;
+    right: 75%;
     height: 40px;  
     width: 130px;
     border-style: solid; 
@@ -156,12 +200,14 @@ p{
     font-size: 14px;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-weight: bold;
+    
+    
 }
 #pontuacaoDealer{
     position: absolute;
     background-color: white;
-    margin-top: -23%;
-    margin-right: 35%;
+    bottom: 90%;
+    right: 75%;
     height: 40px;  
     width: 130px;
     border-style: solid; 
@@ -173,12 +219,14 @@ p{
     font-size: 14px;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-weight: bold;
+    
 }
 
 #fimDeJogo{
     position: absolute;
-    background-color: darkred;
+    background-color: green;
     margin-bottom: 2%;
+    right: 40%;
     height: 40px;  
     width: 180px;
     border-style: solid; 
@@ -189,5 +237,89 @@ p{
     justify-content:center;
     font-size: 14px;
     font-family: 'Helvetica', 'Arial', sans-serif;
-    font-weight: bold;
+    font-weight: bold;   
 }
+
+footer{
+    position:absolute;
+    top:1000px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #111;
+    height: auto;
+    width: 100vw;
+    font-family: "Open Sans";
+    padding-top: 40px;
+    color: #fff;
+}
+.footer-content{
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background: #000;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    /*text-transform: capitalize;*/
+}
+.footer-bottom span{
+    text-transform: capitalize;
+    opacity: .4;
+    font-weight: 200;
+}
+
+@media only screen and (max-width: 700px) {
+    /* For mobile phones: */
+    *{
+      width: 100%;
+    }
+  }
+
+
+
+
