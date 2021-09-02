@@ -9,7 +9,7 @@ var jogoAcabou:Boolean = false
 
 @JsName("darCartas")
 fun darCartas(){
-
+    
     p1.maoDoJogador.puxarCarta(2,baralhin.cartas)
     dealer.maoDoJogador.puxarCarta(2,baralhin.cartas)
 
@@ -135,7 +135,6 @@ fun manterMao(){
         else{
             pontosJogador = p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1)
         }
-        println("vez do dealer")
         document.getElementById("cartaDealer2")?.innerHTML = "<p id = texto-carta>$cartaDoDealer2</p>"
         document.getElementById("cartaDealer2")?.id = "cartaDealer"
     
@@ -171,32 +170,30 @@ fun manterMao(){
 
 fun verificinator(){
     if(p1.maoDoJogador.asNaMao){
-        if(p1.maoDoJogador.somarOTotalcomAs(p1.maoDoJogador.cartasNaMao.size-1) > 21){
-            println("rebentastes ou nao")
-        }
-        else if(p1.maoDoJogador.somarOTotalcomAs(p1.maoDoJogador.cartasNaMao.size-1) == 21){
-        println("vencestes")
+
+        if(p1.maoDoJogador.somarOTotalcomAs(p1.maoDoJogador.cartasNaMao.size-1) == 21){
+
         document.getElementById("pedir")?.remove()
         document.getElementById("manter")?.remove()
         document.getElementById("jogo")?.innerHTML += """
-        <div id = "fimDeJogo" style = "background: green;">PARABENS OTARIO</div>""" 
+        <div id = "fimDeJogo" style = "background: green;">VENCESTES</div>""" 
         jogoAcabou = true;
         }
     }
     if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) > 21){
-            println("rebentastes")
-            document.getElementById("pedir")?.remove()
-            document.getElementById("manter")?.remove()
-            document.getElementById("jogo")?.innerHTML += """
-            <div id = "fimDeJogo" style = "background: darkred">REBENTASTES</div>"""
-            jogoAcabou = true;
-        }
-    else if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) == 21){
-        println("vencestes")
+
         document.getElementById("pedir")?.remove()
         document.getElementById("manter")?.remove()
         document.getElementById("jogo")?.innerHTML += """
-        <div id = "fimDeJogo" style = "background: green;">PARABENS OTARIO</div>""" 
+        <div id = "fimDeJogo" style = "background: darkred">REBENTASTES</div>"""
+        jogoAcabou = true;
+        }
+    else if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) == 21){
+        
+        document.getElementById("pedir")?.remove()
+        document.getElementById("manter")?.remove()
+        document.getElementById("jogo")?.innerHTML += """
+        <div id = "fimDeJogo" style = "background: green;">VENCESTES</div>""" 
         jogoAcabou = true;
     }
 
@@ -205,70 +202,68 @@ fun verificinator(){
 fun verificinatorDealer(pontosJogador:Int){
 
     if(dealer.maoDoJogador.asNaMao){
-        if(dealer.maoDoJogador.somarOTotalcomAs(dealer.maoDoJogador.cartasNaMao.size-1) > 21){
-            println("rebentastes ou nao")
-        }
-        else if(dealer.maoDoJogador.somarOTotalcomAs(dealer.maoDoJogador.cartasNaMao.size-1) == 21){
-            println("vencestes")
+
+        if(dealer.maoDoJogador.somarOTotalcomAs(dealer.maoDoJogador.cartasNaMao.size-1) == 21){
+            
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
-            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: blue;">PERDEU OTARIO</div>"""
+            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: blue;">PERDESTES</div>"""
             jogoAcabou = true 
         }
         else if(dealer.maoDoJogador.somarOTotalcomAs(dealer.maoDoJogador.cartasNaMao.size-1) > pontosJogador){
-            println("vencestes")
+            
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
-            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: yellow;">PERDEU OTARIO</div>""" 
+            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: yellow;">PERDESTES</div>""" 
             jogoAcabou = true 
         }
         else if(dealer.maoDoJogador.somarOTotalcomAs(dealer.maoDoJogador.cartasNaMao.size-1) == pontosJogador){
-            println("vencestes")
+            
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
-            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: green;">EMPATE OTARIO</div>""" 
+            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: green;">EMPATASTES</div>""" 
             jogoAcabou = true 
         }
     }
 
         if(dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) > 21){
-            println("rebentastes")
+            
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
             document.getElementById("jogo")?.innerHTML += """
-            <div id = "fimDeJogo">GANHASTES</div>
+            <div id = "fimDeJogo">VENCESTES</div>
             """
             jogoAcabou = true 
             }
         else if(dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) == 21){
-            println("vencestes")
+            
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
-            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: brown;">PERDEU OTARIO</div>""" 
+            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: brown;">PERDESTES</div>""" 
             jogoAcabou = true 
         }
         else if(dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) > pontosJogador){
-            println("vencestes")
+            
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
-            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: pink;">PERDEU OTARIO</div>""" 
+            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: pink;">PERDESTES</div>""" 
             jogoAcabou = true 
         }
         else if(dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) == pontosJogador &&
         dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) >= 17){
-            println("vencestes")
+            
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
-            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: purple;">EMPATE OTARIO</div>""" 
+            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: purple;">EMPATASTES</div>""" 
             jogoAcabou = true 
         }
         //SITUAÇAO Q O DEALER JA TEM 17 NO TOTAL E NAO PODE MAIS PUXAR CARTA
         else if(dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) >= 17 && 
         dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) < pontosJogador){
-            println("vencestes")
+            
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
-            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: green;">PARABENS OTARIO</div>""" 
+            document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: green;">VENCESTES</div>""" 
             jogoAcabou = true
         }
 }
@@ -336,6 +331,7 @@ class Baralho(){
     
 
 class Mao(){
+    
     val cartasNaMao = mutableListOf<Carta>()
     var asNaMao = false
 

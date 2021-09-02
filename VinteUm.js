@@ -116,90 +116,75 @@ if (typeof kotlin === 'undefined') {
   function verificinator() {
     var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4, tmp$_5, tmp$_6, tmp$_7;
     if (p1.maoDoJogador.asNaMao) {
-      if (p1.maoDoJogador.somarOTotalcomAs_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0) > 21) {
-        println('rebentastes ou nao');
-      } else if (p1.maoDoJogador.somarOTotalcomAs_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0) === 21) {
-        println('vencestes');
+      if (p1.maoDoJogador.somarOTotalcomAs_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0) === 21) {
         (tmp$ = document.getElementById('pedir')) != null ? (tmp$.remove(), Unit) : null;
         (tmp$_0 = document.getElementById('manter')) != null ? (tmp$_0.remove(), Unit) : null;
         tmp$_1 = document.getElementById('jogo');
-        tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '\n        <div id = "fimDeJogo" style = "background: green;">PARABENS OTARIO<\/div>') : null;
+        tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '\n        <div id = "fimDeJogo" style = "background: green;">VENCESTES<\/div>') : null;
         jogoAcabou = true;
       }}if (p1.maoDoJogador.somarOTotal_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0) > 21) {
-      println('rebentastes');
       (tmp$_2 = document.getElementById('pedir')) != null ? (tmp$_2.remove(), Unit) : null;
       (tmp$_3 = document.getElementById('manter')) != null ? (tmp$_3.remove(), Unit) : null;
       tmp$_4 = document.getElementById('jogo');
-      tmp$_4 != null ? (tmp$_4.innerHTML = (tmp$_4 != null ? tmp$_4.innerHTML : null) + '\n            <div id = "fimDeJogo" style = "background: darkred">REBENTASTES<\/div>') : null;
+      tmp$_4 != null ? (tmp$_4.innerHTML = (tmp$_4 != null ? tmp$_4.innerHTML : null) + '\n        <div id = "fimDeJogo" style = "background: darkred">REBENTASTES<\/div>') : null;
       jogoAcabou = true;
     } else if (p1.maoDoJogador.somarOTotal_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0) === 21) {
-      println('vencestes');
       (tmp$_5 = document.getElementById('pedir')) != null ? (tmp$_5.remove(), Unit) : null;
       (tmp$_6 = document.getElementById('manter')) != null ? (tmp$_6.remove(), Unit) : null;
       tmp$_7 = document.getElementById('jogo');
-      tmp$_7 != null ? (tmp$_7.innerHTML = (tmp$_7 != null ? tmp$_7.innerHTML : null) + '\n        <div id = "fimDeJogo" style = "background: green;">PARABENS OTARIO<\/div>') : null;
+      tmp$_7 != null ? (tmp$_7.innerHTML = (tmp$_7 != null ? tmp$_7.innerHTML : null) + '\n        <div id = "fimDeJogo" style = "background: green;">VENCESTES<\/div>') : null;
       jogoAcabou = true;
     }}
   function verificinatorDealer(pontosJogador) {
     var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4, tmp$_5, tmp$_6, tmp$_7, tmp$_8, tmp$_9, tmp$_10, tmp$_11, tmp$_12, tmp$_13, tmp$_14, tmp$_15, tmp$_16, tmp$_17, tmp$_18, tmp$_19, tmp$_20, tmp$_21, tmp$_22;
     if (dealer.maoDoJogador.asNaMao) {
-      if (dealer.maoDoJogador.somarOTotalcomAs_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) > 21) {
-        println('rebentastes ou nao');
-      } else if (dealer.maoDoJogador.somarOTotalcomAs_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) === 21) {
-        println('vencestes');
+      if (dealer.maoDoJogador.somarOTotalcomAs_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) === 21) {
         (tmp$ = document.getElementById('pedir')) != null ? (tmp$.remove(), Unit) : null;
         (tmp$_0 = document.getElementById('manter')) != null ? (tmp$_0.remove(), Unit) : null;
         tmp$_1 = document.getElementById('jogo');
-        tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '<div id = "fimDeJogo" style = "background: blue;">PERDEU OTARIO<\/div>') : null;
+        tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '<div id = "fimDeJogo" style = "background: blue;">PERDESTES<\/div>') : null;
         jogoAcabou = true;
       } else if (dealer.maoDoJogador.somarOTotalcomAs_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) > pontosJogador) {
-        println('vencestes');
         (tmp$_2 = document.getElementById('pedir')) != null ? (tmp$_2.remove(), Unit) : null;
         (tmp$_3 = document.getElementById('manter')) != null ? (tmp$_3.remove(), Unit) : null;
         tmp$_4 = document.getElementById('jogo');
-        tmp$_4 != null ? (tmp$_4.innerHTML = (tmp$_4 != null ? tmp$_4.innerHTML : null) + '<div id = "fimDeJogo" style = "background: yellow;">PERDEU OTARIO<\/div>') : null;
+        tmp$_4 != null ? (tmp$_4.innerHTML = (tmp$_4 != null ? tmp$_4.innerHTML : null) + '<div id = "fimDeJogo" style = "background: yellow;">PERDESTES<\/div>') : null;
         jogoAcabou = true;
       } else if (dealer.maoDoJogador.somarOTotalcomAs_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) === pontosJogador) {
-        println('vencestes');
         (tmp$_5 = document.getElementById('pedir')) != null ? (tmp$_5.remove(), Unit) : null;
         (tmp$_6 = document.getElementById('manter')) != null ? (tmp$_6.remove(), Unit) : null;
         tmp$_7 = document.getElementById('jogo');
-        tmp$_7 != null ? (tmp$_7.innerHTML = (tmp$_7 != null ? tmp$_7.innerHTML : null) + '<div id = "fimDeJogo" style = "background: green;">EMPATE OTARIO<\/div>') : null;
+        tmp$_7 != null ? (tmp$_7.innerHTML = (tmp$_7 != null ? tmp$_7.innerHTML : null) + '<div id = "fimDeJogo" style = "background: green;">EMPATASTES<\/div>') : null;
         jogoAcabou = true;
       }}if (dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) > 21) {
-      println('rebentastes');
       (tmp$_8 = document.getElementById('pedir')) != null ? (tmp$_8.remove(), Unit) : null;
       (tmp$_9 = document.getElementById('manter')) != null ? (tmp$_9.remove(), Unit) : null;
       tmp$_10 = document.getElementById('jogo');
-      tmp$_10 != null ? (tmp$_10.innerHTML = (tmp$_10 != null ? tmp$_10.innerHTML : null) + '\n            <div id = "fimDeJogo">GANHASTES<\/div>\n            ') : null;
+      tmp$_10 != null ? (tmp$_10.innerHTML = (tmp$_10 != null ? tmp$_10.innerHTML : null) + '\n            <div id = "fimDeJogo">VENCESTES<\/div>\n            ') : null;
       jogoAcabou = true;
     } else if (dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) === 21) {
-      println('vencestes');
       (tmp$_11 = document.getElementById('pedir')) != null ? (tmp$_11.remove(), Unit) : null;
       (tmp$_12 = document.getElementById('manter')) != null ? (tmp$_12.remove(), Unit) : null;
       tmp$_13 = document.getElementById('jogo');
-      tmp$_13 != null ? (tmp$_13.innerHTML = (tmp$_13 != null ? tmp$_13.innerHTML : null) + '<div id = "fimDeJogo" style = "background: brown;">PERDEU OTARIO<\/div>') : null;
+      tmp$_13 != null ? (tmp$_13.innerHTML = (tmp$_13 != null ? tmp$_13.innerHTML : null) + '<div id = "fimDeJogo" style = "background: brown;">PERDESTES<\/div>') : null;
       jogoAcabou = true;
     } else if (dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) > pontosJogador) {
-      println('vencestes');
       (tmp$_14 = document.getElementById('pedir')) != null ? (tmp$_14.remove(), Unit) : null;
       (tmp$_15 = document.getElementById('manter')) != null ? (tmp$_15.remove(), Unit) : null;
       tmp$_16 = document.getElementById('jogo');
-      tmp$_16 != null ? (tmp$_16.innerHTML = (tmp$_16 != null ? tmp$_16.innerHTML : null) + '<div id = "fimDeJogo" style = "background: pink;">PERDEU OTARIO<\/div>') : null;
+      tmp$_16 != null ? (tmp$_16.innerHTML = (tmp$_16 != null ? tmp$_16.innerHTML : null) + '<div id = "fimDeJogo" style = "background: pink;">PERDESTES<\/div>') : null;
       jogoAcabou = true;
     } else if (dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) === pontosJogador && dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) >= 17) {
-      println('vencestes');
       (tmp$_17 = document.getElementById('pedir')) != null ? (tmp$_17.remove(), Unit) : null;
       (tmp$_18 = document.getElementById('manter')) != null ? (tmp$_18.remove(), Unit) : null;
       tmp$_19 = document.getElementById('jogo');
-      tmp$_19 != null ? (tmp$_19.innerHTML = (tmp$_19 != null ? tmp$_19.innerHTML : null) + '<div id = "fimDeJogo" style = "background: purple;">EMPATE OTARIO<\/div>') : null;
+      tmp$_19 != null ? (tmp$_19.innerHTML = (tmp$_19 != null ? tmp$_19.innerHTML : null) + '<div id = "fimDeJogo" style = "background: purple;">EMPATASTES<\/div>') : null;
       jogoAcabou = true;
     } else if (dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) >= 17 && dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) < pontosJogador) {
-      println('vencestes');
       (tmp$_20 = document.getElementById('pedir')) != null ? (tmp$_20.remove(), Unit) : null;
       (tmp$_21 = document.getElementById('manter')) != null ? (tmp$_21.remove(), Unit) : null;
       tmp$_22 = document.getElementById('jogo');
-      tmp$_22 != null ? (tmp$_22.innerHTML = (tmp$_22 != null ? tmp$_22.innerHTML : null) + '<div id = "fimDeJogo" style = "background: green;">PARABENS OTARIO<\/div>') : null;
+      tmp$_22 != null ? (tmp$_22.innerHTML = (tmp$_22 != null ? tmp$_22.innerHTML : null) + '<div id = "fimDeJogo" style = "background: green;">VENCESTES<\/div>') : null;
       jogoAcabou = true;
     }}
   function Carta(naipe, numero) {
