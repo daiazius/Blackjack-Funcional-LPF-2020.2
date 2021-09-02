@@ -1,0 +1,345 @@
+* {
+    box-sizing: border-box;
+  }
+
+body{
+    width:100%;
+    height: 1200px;
+    background-color: rgba(0, 0, 0, 85%);
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    0%   {background-color:rgba(0, 0, 0, 70%); left:0px; top:0px;}
+    50%  {background-color:rgba(0, 0, 0, 80%); left:200px; top:0px;}
+    100% {background-color:rgba(0, 0, 0, 70%); left:0px; top:0px;}
+}
+
+h1{
+    margin:0%;
+    text-align:center;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 60px;
+    color:white;
+    background-color: black;
+    padding: 10px;
+    
+       
+}
+h2{
+    color: black;
+    text-align: center;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;  
+}
+
+p{
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.jogo{
+    position: absolute;
+    background-image: url(i1.jpg);
+    background-size: 100% 100%;
+    width: 50%;
+    margin-left: 25%;
+    height: 500px;
+    border: 1px solid black;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    
+ 
+}
+
+.descricao{
+
+    width:50%;
+    background-color: rgba(0, 0, 0, 25%);
+    border-left: 6px solid red;
+    color:white;
+    margin-left:25%;
+    padding: 20px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+#maoJogador{
+    position: absolute;
+    bottom:18%;
+    width: 80%;
+    height: 30%;
+}
+#maoDealer{
+    position: absolute;
+    display: inline-block;
+    top:13%;
+    width: 80%;
+    height: 30%;
+}
+#botao{
+    position:relative;
+    background: radial-gradient(red, darkred);
+    border: 3px solid black;
+    border-radius: 50%;
+    color: white;
+    padding: 3%;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top:25%;
+    margin-right:20%;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 darkred;
+    transition: 0.5s;
+    outline: none;  
+}
+
+#botao:hover{
+    box-shadow: inset 100px 0 0 0 #870000;
+}
+
+#recarregar{
+    position:relative;
+    background: radial-gradient(red, darkred);
+    border: 3px solid black;
+    border-radius: 50%;
+    color: white;
+    padding: 2%;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top:45%;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 darkred;
+    transition: 0.5s;
+    outline: none;  
+}
+
+#imagem{
+    position: relative;
+    width:20%;
+    height:30%;
+    left:15%;
+    bottom:20%;
+
+}
+
+#jogar{
+    color:white;
+    text-shadow: 3px 3px black ;
+    font-size: 14px;
+    font-weight: bold; 
+}
+
+#carta{
+    position: relative;
+    display: inline-block;
+    background-image: url(ACarta.jpg);
+    border-style:solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    width: 90px; 
+    height: 120px; 
+    margin-right:20px;
+    top: 20%; 
+
+
+}
+
+#cartaDealer{
+    background-image: url(ACarta.jpg);
+    display: inline-block;
+    position: relative;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    width: 90px; 
+    height: 120px; 
+    margin-right:20px;
+
+    
+     
+}
+#cartaDealer2{
+    background-image: url(cartavirada.jpg);
+    display: inline-block;
+    position: absolute;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    width: 90px; 
+    height: 120px; 
+    margin-right:20px; 
+}
+
+#pedir{
+    position: absolute;
+    top: 85%;
+    right: 55%;
+    height: 40px;  
+    width: 90px;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+}
+#manter{
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    height: 40px;  
+    width: 90px;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+#texto-carta{
+    text-align: center; 
+    margin-top: 50%; 
+    color: black;
+    font-weight: bold;
+}
+
+#pontuacao{
+    position: absolute;
+    background-color: white;
+    top: 85%;
+    right: 75%;
+    height: 40px;  
+    width: 130px;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+    
+    
+}
+#pontuacaoDealer{
+    position: absolute;
+    background-color: white;
+    bottom: 90%;
+    right: 75%;
+    height: 40px;  
+    width: 130px;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+    
+}
+
+#fimDeJogo{
+    position: absolute;
+    background-color: green;
+    margin-bottom: 2%;
+    right: 40%;
+    height: 40px;  
+    width: 180px;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;   
+}
+
+footer{
+    position:absolute;
+    top:1000px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #111;
+    height: auto;
+    width: 100vw;
+    font-family: "Open Sans";
+    padding-top: 40px;
+    color: #fff;
+}
+.footer-content{
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background: #000;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    /*text-transform: capitalize;*/
+}
+.footer-bottom span{
+    text-transform: capitalize;
+    opacity: .4;
+    font-weight: 200;
+}
+
+@media only screen and (max-width: 700px) {
+    /* For mobile phones: */
+    *{
+      width: 100%;
+    }
+  }
+
+
+
+
