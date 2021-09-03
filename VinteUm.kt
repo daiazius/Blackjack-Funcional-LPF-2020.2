@@ -1,15 +1,14 @@
 import kotlinx.browser.*
 import org.w3c.dom.*
 
-
-val baralhin = Baralho()
-val p1 = Jogador("joao")
-val dealer = Jogador("dealer")
+var nomeDoJogador = window.prompt("Seu Nome","João")!!
+var baralhin = Baralho()
+var p1 = Jogador(nomeDoJogador)
+var dealer = Jogador("dealer")
 var jogoAcabou:Boolean = false
 
 @JsName("darCartas")
 fun darCartas(){
-    
     p1.maoDoJogador.puxarCarta(2,baralhin.cartas)
     dealer.maoDoJogador.puxarCarta(2,baralhin.cartas)
 
@@ -95,7 +94,8 @@ fun pedirCartas(){
     }
     verificinator()
     if(jogoAcabou){
-        document.getElementById("jogo")?.innerHTML += """<button onclick="document.location.reload(true)" id="recarregar"><p id = "jogar">Recarrega</p></button>"""
+        reset()
+        document.getElementById("jogo")?.innerHTML += """<button onclick="VinteUm.darCartas()" id="recarregar"><p id = "jogar">Recarrega</p></button>"""
     }
 
 }
@@ -150,7 +150,8 @@ fun manterMao(){
         if(!jogoAcabou){
             verificinatorDealer(pontosJogador)
         }else{
-            document.getElementById("jogo")?.innerHTML += """<button onclick="document.location.reload(true)" id="recarregar"><p id = "jogar">Recarrega</p></button>"""
+            
+            document.getElementById("jogo")?.innerHTML += """<button onclick="VinteUm.darCartas()" id="recarregar"><p id = "jogar">Recarrega</p></button>"""
         }
 
         val pont:Int = dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1)
@@ -162,9 +163,13 @@ fun manterMao(){
         else{
             document.getElementById("pontuacaoDealer")?.innerHTML = "Pontuação: $pont";
         }
+        reset()
+        //    FAZER O RANKINGGGGGGGGGGGGGGGGGGGGGG
+        File("ranking.txt").writeText("$nomeDoJogador: $p1.vezesQueGanhou")
     }
     else{
-        document.getElementById("jogo")?.innerHTML += """<button onclick="document.location.reload(true)" id="recarregar"><p id = "jogar">Recarrega</p></button>"""
+        reset()
+        document.getElementById("jogo")?.innerHTML += """<button onclick="VinteUm.darCartas()" id="recarregar"><p id = "jogar">Recarrega</p></button>"""
     }
 }
 
@@ -172,16 +177,16 @@ fun verificinator(){
     if(p1.maoDoJogador.asNaMao){
 
         if(p1.maoDoJogador.somarOTotalcomAs(p1.maoDoJogador.cartasNaMao.size-1) == 21){
-
-        document.getElementById("pedir")?.remove()
-        document.getElementById("manter")?.remove()
-        document.getElementById("jogo")?.innerHTML += """
-        <div id = "fimDeJogo" style = "background: green;">VENCESTES</div>""" 
-        jogoAcabou = true;
+            p1.vezesQueGanhou += 1
+            document.getElementById("pedir")?.remove()
+            document.getElementById("manter")?.remove()
+            document.getElementById("jogo")?.innerHTML += """
+            <div id = "fimDeJogo" style = "background: green;">VENCESTES</div>""" 
+            jogoAcabou = true;
         }
     }
     if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) > 21){
-
+        
         document.getElementById("pedir")?.remove()
         document.getElementById("manter")?.remove()
         document.getElementById("jogo")?.innerHTML += """
@@ -189,7 +194,7 @@ fun verificinator(){
         jogoAcabou = true;
         }
     else if(p1.maoDoJogador.somarOTotal(p1.maoDoJogador.cartasNaMao.size-1) == 21){
-        
+        p1.vezesQueGanhou += 1
         document.getElementById("pedir")?.remove()
         document.getElementById("manter")?.remove()
         document.getElementById("jogo")?.innerHTML += """
@@ -227,7 +232,7 @@ fun verificinatorDealer(pontosJogador:Int){
     }
 
         if(dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) > 21){
-            
+            p1.vezesQueGanhou += 1
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
             document.getElementById("jogo")?.innerHTML += """
@@ -260,12 +265,19 @@ fun verificinatorDealer(pontosJogador:Int){
         //SITUAÇAO Q O DEALER JA TEM 17 NO TOTAL E NAO PODE MAIS PUXAR CARTA
         else if(dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) >= 17 && 
         dealer.maoDoJogador.somarOTotal(dealer.maoDoJogador.cartasNaMao.size-1) < pontosJogador){
-            
+            p1.vezesQueGanhou += 1
             document.getElementById("pedir")?.remove()
             document.getElementById("manter")?.remove()
             document.getElementById("jogo")?.innerHTML += """<div id = "fimDeJogo" style = "background: green;">VENCESTES</div>""" 
             jogoAcabou = true
         }
+}
+
+fun reset(){
+    baralhin = Baralho()
+    p1.maoDoJogador.limparMao()
+    dealer.maoDoJogador.limparMao()
+    jogoAcabou = false
 }
 
 class Carta(val naipe :Int, val numero :Int) {
@@ -295,7 +307,6 @@ class Carta(val naipe :Int, val numero :Int) {
         return coisa
     }
     
-
 }
 
 class Baralho(){
@@ -379,10 +390,15 @@ class Mao(){
 
     }
 
+    fun limparMao(){
+        asNaMao = false
+        cartasNaMao.clear()
+    }
+
 }
 
 class Jogador(val nome:String){
     val maoDoJogador = Mao()
-    val pontuacao:Int = 0
+    var vezesQueGanhou:Int = 0
     
 }

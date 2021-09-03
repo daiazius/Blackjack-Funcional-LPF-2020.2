@@ -33,13 +33,29 @@ h2{
     text-align: center;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 24px;
-    margin-bottom: 10px;  
+    margin-bottom: 10px;
+
 }
 
 p{
     width: 100%;
     margin: 0 auto;
     font-family: 'Helvetica', 'Arial', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+    background-color: darkred;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.ranking{
+    position:absolute;
+    left:47.6%;
+    top:95%;
+    font-size: 26px;
 }
 
 .jogo{
@@ -98,6 +114,7 @@ p{
     transition: 0.5s;
     outline: none;  
 }
+
 
 #botao:hover{
     box-shadow: inset 100px 0 0 0 #870000;

@@ -2,6 +2,7 @@ if (typeof kotlin === 'undefined') {
   throw new Error("Error loading module 'VinteUm'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'VinteUm'.");
 }var VinteUm = function (_, Kotlin) {
   'use strict';
+  var ensureNotNull = Kotlin.ensureNotNull;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var last = Kotlin.kotlin.collections.last_2p1efm$;
   var Unit = Kotlin.kotlin.Unit;
@@ -9,6 +10,7 @@ if (typeof kotlin === 'undefined') {
   var shuffle = Kotlin.kotlin.collections.shuffle_vvxzk3$;
   var removeFirst = Kotlin.kotlin.collections.removeFirst_vvxzk3$;
   var ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_287e2$;
+  var nomeDoJogador;
   var baralhin;
   var p1;
   var dealer;
@@ -60,8 +62,9 @@ if (typeof kotlin === 'undefined') {
     }
     verificinator();
     if (jogoAcabou) {
+      reset();
       tmp$_1 = document.getElementById('jogo');
-      tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '<button onclick="document.location.reload(true)" id="recarregar"><p id = "jogar">Recarrega<\/p><\/button>') : null;
+      tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '<button onclick="VinteUm.darCartas()" id="recarregar"><p id = "jogar">Recarrega<\/p><\/button>') : null;
     }}
   function pedirCartasDealer() {
     if (baralhin.cartas.isEmpty()) {
@@ -86,7 +89,6 @@ if (typeof kotlin === 'undefined') {
       } else {
         pontosJogador = p1.maoDoJogador.somarOTotal_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0);
       }
-      println('vez do dealer');
       (tmp$ = document.getElementById('cartaDealer2')) != null ? (tmp$.innerHTML = '<p id = texto-carta>' + cartaDoDealer2 + '<\/p>') : null;
       (tmp$_0 = document.getElementById('cartaDealer2')) != null ? (tmp$_0.id = 'cartaDealer') : null;
       verificinatorDealer(pontosJogador);
@@ -99,7 +101,7 @@ if (typeof kotlin === 'undefined') {
         verificinatorDealer(pontosJogador);
       } else {
         tmp$_1 = document.getElementById('jogo');
-        tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '<button onclick="document.location.reload(true)" id="recarregar"><p id = "jogar">Recarrega<\/p><\/button>') : null;
+        tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '<button onclick="VinteUm.darCartas()" id="recarregar"><p id = "jogar">Recarrega<\/p><\/button>') : null;
       }
       var pont = dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0);
       var pontA = dealer.maoDoJogador.somarOTotalcomAs_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0);
@@ -108,19 +110,22 @@ if (typeof kotlin === 'undefined') {
       } else {
         (tmp$_3 = document.getElementById('pontuacaoDealer')) != null ? (tmp$_3.innerHTML = 'Pontua\xE7\xE3o: ' + pont) : null;
       }
+      reset();
     } else {
+      reset();
       tmp$_4 = document.getElementById('jogo');
-      tmp$_4 != null ? (tmp$_4.innerHTML = (tmp$_4 != null ? tmp$_4.innerHTML : null) + '<button onclick="document.location.reload(true)" id="recarregar"><p id = "jogar">Recarrega<\/p><\/button>') : null;
+      tmp$_4 != null ? (tmp$_4.innerHTML = (tmp$_4 != null ? tmp$_4.innerHTML : null) + '<button onclick="VinteUm.darCartas()" id="recarregar"><p id = "jogar">Recarrega<\/p><\/button>') : null;
     }
   }
   function verificinator() {
     var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4, tmp$_5, tmp$_6, tmp$_7;
     if (p1.maoDoJogador.asNaMao) {
       if (p1.maoDoJogador.somarOTotalcomAs_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0) === 21) {
+        p1.vezesQueGanhou = p1.vezesQueGanhou + 1 | 0;
         (tmp$ = document.getElementById('pedir')) != null ? (tmp$.remove(), Unit) : null;
         (tmp$_0 = document.getElementById('manter')) != null ? (tmp$_0.remove(), Unit) : null;
         tmp$_1 = document.getElementById('jogo');
-        tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '\n        <div id = "fimDeJogo" style = "background: green;">VENCESTES<\/div>') : null;
+        tmp$_1 != null ? (tmp$_1.innerHTML = (tmp$_1 != null ? tmp$_1.innerHTML : null) + '\n            <div id = "fimDeJogo" style = "background: green;">VENCESTES<\/div>') : null;
         jogoAcabou = true;
       }}if (p1.maoDoJogador.somarOTotal_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0) > 21) {
       (tmp$_2 = document.getElementById('pedir')) != null ? (tmp$_2.remove(), Unit) : null;
@@ -129,6 +134,7 @@ if (typeof kotlin === 'undefined') {
       tmp$_4 != null ? (tmp$_4.innerHTML = (tmp$_4 != null ? tmp$_4.innerHTML : null) + '\n        <div id = "fimDeJogo" style = "background: darkred">REBENTASTES<\/div>') : null;
       jogoAcabou = true;
     } else if (p1.maoDoJogador.somarOTotal_za3lpa$(p1.maoDoJogador.cartasNaMao.size - 1 | 0) === 21) {
+      p1.vezesQueGanhou = p1.vezesQueGanhou + 1 | 0;
       (tmp$_5 = document.getElementById('pedir')) != null ? (tmp$_5.remove(), Unit) : null;
       (tmp$_6 = document.getElementById('manter')) != null ? (tmp$_6.remove(), Unit) : null;
       tmp$_7 = document.getElementById('jogo');
@@ -157,6 +163,7 @@ if (typeof kotlin === 'undefined') {
         tmp$_7 != null ? (tmp$_7.innerHTML = (tmp$_7 != null ? tmp$_7.innerHTML : null) + '<div id = "fimDeJogo" style = "background: green;">EMPATASTES<\/div>') : null;
         jogoAcabou = true;
       }}if (dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) > 21) {
+      p1.vezesQueGanhou = p1.vezesQueGanhou + 1 | 0;
       (tmp$_8 = document.getElementById('pedir')) != null ? (tmp$_8.remove(), Unit) : null;
       (tmp$_9 = document.getElementById('manter')) != null ? (tmp$_9.remove(), Unit) : null;
       tmp$_10 = document.getElementById('jogo');
@@ -181,12 +188,19 @@ if (typeof kotlin === 'undefined') {
       tmp$_19 != null ? (tmp$_19.innerHTML = (tmp$_19 != null ? tmp$_19.innerHTML : null) + '<div id = "fimDeJogo" style = "background: purple;">EMPATASTES<\/div>') : null;
       jogoAcabou = true;
     } else if (dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) >= 17 && dealer.maoDoJogador.somarOTotal_za3lpa$(dealer.maoDoJogador.cartasNaMao.size - 1 | 0) < pontosJogador) {
+      p1.vezesQueGanhou = p1.vezesQueGanhou + 1 | 0;
       (tmp$_20 = document.getElementById('pedir')) != null ? (tmp$_20.remove(), Unit) : null;
       (tmp$_21 = document.getElementById('manter')) != null ? (tmp$_21.remove(), Unit) : null;
       tmp$_22 = document.getElementById('jogo');
       tmp$_22 != null ? (tmp$_22.innerHTML = (tmp$_22 != null ? tmp$_22.innerHTML : null) + '<div id = "fimDeJogo" style = "background: green;">VENCESTES<\/div>') : null;
       jogoAcabou = true;
     }}
+  function reset() {
+    baralhin = new Baralho();
+    p1.maoDoJogador.limparMao();
+    dealer.maoDoJogador.limparMao();
+    jogoAcabou = false;
+  }
   function Carta(naipe, numero) {
     this.naipe = naipe;
     this.numero = numero;
@@ -286,6 +300,10 @@ if (typeof kotlin === 'undefined') {
       }return this.somarOTotalcomAs_za3lpa$(n - 1 | 0) + this.cartasNaMao.get_za3lpa$(n).numero | 0;
     }
   };
+  Mao.prototype.limparMao = function () {
+    this.asNaMao = false;
+    this.cartasNaMao.clear();
+  };
   Mao.$metadata$ = {
     kind: Kind_CLASS,
     simpleName: 'Mao',
@@ -294,26 +312,43 @@ if (typeof kotlin === 'undefined') {
   function Jogador(nome) {
     this.nome = nome;
     this.maoDoJogador = new Mao();
-    this.pontuacao = 0;
+    this.vezesQueGanhou = 0;
   }
   Jogador.$metadata$ = {
     kind: Kind_CLASS,
     simpleName: 'Jogador',
     interfaces: []
   };
+  Object.defineProperty(_, 'nomeDoJogador', {
+    get: function () {
+      return nomeDoJogador;
+    },
+    set: function (value) {
+      nomeDoJogador = value;
+    }
+  });
   Object.defineProperty(_, 'baralhin', {
     get: function () {
       return baralhin;
+    },
+    set: function (value) {
+      baralhin = value;
     }
   });
   Object.defineProperty(_, 'p1', {
     get: function () {
       return p1;
+    },
+    set: function (value) {
+      p1 = value;
     }
   });
   Object.defineProperty(_, 'dealer', {
     get: function () {
       return dealer;
+    },
+    set: function (value) {
+      dealer = value;
     }
   });
   Object.defineProperty(_, 'jogoAcabou', {
@@ -330,12 +365,14 @@ if (typeof kotlin === 'undefined') {
   _.manterMao = manterMao;
   _.verificinator = verificinator;
   _.verificinatorDealer_za3lpa$ = verificinatorDealer;
+  _.reset = reset;
   _.Carta = Carta;
   _.Baralho = Baralho;
   _.Mao = Mao;
   _.Jogador = Jogador;
+  nomeDoJogador = ensureNotNull(window.prompt('Seu Nome', 'Jo\xE3o'));
   baralhin = new Baralho();
-  p1 = new Jogador('joao');
+  p1 = new Jogador(nomeDoJogador);
   dealer = new Jogador('dealer');
   jogoAcabou = false;
   Kotlin.defineModule('VinteUm', _);
