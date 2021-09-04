@@ -4,70 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="fichas-de-cassino.png" type="image/x-icon">
+    <!--- ícone mostrado no título da página-->
+    <link rel="shortcut icon" href="blackjack/images/fichas-de-cassino.png" type="image/x-icon">
+    <!--- import dos estilos utilizados na pagina-->
+    <link rel="stylesheet" type="text/css" href="estilos.css" media="screen"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Cassino Royale</title>
-   
-    <style>
-        body{
-            background-color: rgba(0, 0, 0, 85%);
-        }
-        h1{
-            margin:0%;
-            text-align:center;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-            font-size: 60px;
-            color:white;
-            background-color: rgba(256, 0, 0, 75%);
-            
-        }
-        h2{
-            color: rgba(256, 0, 0, 75%);;
-            text-align: center;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-            font-size: 24px;
-            margin-bottom: 0;
-            
-        }
-        .jogo{
-            margin-left: 30%;
-            margin-top: 1%;
-            border: 1px solid rgb(255, 255, 255);
-            width: 250px;
-            padding: 250px;
-            border-radius: 5px;
-        }
-        .descricao{
-            color:white;
-            margin-left:500px;
-            margin-right:500px;
-            font-size: 16px;
-            
-        }
-        p{
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-        }
-        .botao{
-            
-            padding: 20px;
-        }
-
-    </style> 
 </head>
+
 <body>
 
-    <!--- SCRIPT DO KOTLENS-->
+    <!--- SCRIPT DO KOTLIN-->
     <script src="https://cdn.jsdelivr.net/npm/kotlin@1.5.21/kotlin.min.js"></script>
     <script src="VinteUm.js"></script>
 
-    <h1>O Cassino</h1>
-    
-    <h2>Black Jack: 21<hr> </h2>
-    
-    <div class="descricao"> <p>Blackjack ou Vinte-e-um é um jogo praticado com cartas em casinos e que pode ser jogado com 1 a 8 baralhos de 52 cartas,em que o objetivo é ter mais pontos do que o adversário, mas sem ultrapassar os 21 (caso em que se perde). O dealer só pode pedir até um máximo de 5 cartas ou até chegar ao número 17.</p></div> 
+    <div id = "cabecalho">
+        <h1>Cassino Royale</h1>
+    </div>
+
+    <h2>Black Jack 21:</h2>
+
+    <div class="descricao"> <p>Blackjack ou Vinte-e-um é um jogo praticado com cartas em casinos e que pode ser jogado com 1 a 8 baralhos de 52 cartas,
+        em que o objetivo é ter mais pontos do que o adversário, mas sem ultrapassar os 21 (caso em que se perde). O dealer só pode pedir até um máximo de 5 cartas ou até 
+        chegar ao número 17.</p>
+    </div>
+
     <h2>Jogar:</h2>
     
-    <div class = "jogo" id="jogo"><button onclick="VinteUm.darCartas()" class="botao">Jogar</button></div>
-
+    <div id="jogo">
+        <img src="blackjack/images/Blackjack-logo.png" id="imagem">
+        <button onclick="VinteUm.darCartas()" class="jogar" role="button"><p id = "jogar">Jogar</p></button>
+    </div>
     
+    <footer>
+        <div class="footer-content">
+            <h3>Projeto LPF 2020.2</h3>
+            <p>Projeto realizado utilizando por base a linguagem Kotlin.</p>
+            <ul class="socials">
+                <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/watch?v=HEXWRTEbj1I" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/watch?v=NLZRYQMLDW4" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="https://www.youtube.com/watch?v=KwM4yOwMls4" target="_blank"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Designed by <span>João Victor Alves | Pedro Victor | Rodrigo Pascaretta</span></p>
+        </div>
+    </footer>
+
 </body>
 </html>

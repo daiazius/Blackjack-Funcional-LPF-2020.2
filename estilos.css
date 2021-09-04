@@ -1,0 +1,493 @@
+/*corpo da página*/
+body{
+    margin: 0%;
+    background-color: rgba(0, 0, 0, 85%);
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+/*animação que faz o fundo do site piscar*/
+@keyframes example {
+    0%   {background-color:rgba(0, 0, 0, 70%); left:0px; top:0px;}
+    50%  {background-color:rgba(0, 0, 0, 80%); left:200px; top:0px;}
+    100% {background-color:rgba(0, 0, 0, 70%); left:0px; top:0px;}
+}
+
+/*título do site*/
+h1{
+    margin:0%;
+    text-align:center;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 60px;
+    color:white; 
+}
+
+/*subtítulos do site*/
+h2{
+    color: white;
+    text-shadow: 3px 0 0 black, -3px 0 0 black, 0 3px 0 black, 0 -3px 0 black, 2px 2px black, -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black;
+    text-align: center;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+
+}
+
+/*estilo dos parágrafos do site*/
+p{
+    margin: 0 auto;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+/*estilo da descrição do jogo*/
+.descricao{
+    width:50%;
+    background-color: rgba(0, 0, 0, 25%);
+    border-left: 6px solid red;
+    color:white;
+    margin-left:25%;
+    padding: 20px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/*estilo do cabeçalho*/
+#cabecalho{
+    position: relative;
+    background: black;
+    border-bottom: 2px solid white;
+    padding: 20px;
+}
+
+/*div responsável por mostrar o jogo*/
+#jogo{
+    position: absolute;
+    background-image: url(blackjack/images/i1.jpg);
+    background-size: 100% 100%;
+    width: 70%;
+    margin-left: 16.4%;
+    height: 700px;
+    border: 1px solid black;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+ 
+}
+
+/*imagem inicial do jogo*/
+#imagem{
+    position: absolute;
+    width:40%;
+    height:40%;
+    left:30%;
+    bottom:40%;
+}
+
+/*div que mostra e organiza as cartas do jogador*/
+#maoJogador{
+    position: absolute;
+    bottom:18%;
+    width: 80%;
+    height: 30%;
+}
+/*div que mostra e organiza as cartas do dealer*/
+#maoDealer{
+    position: absolute;
+    display: inline-block;
+    top:13%;
+    width: 80%;
+    height: 30%;
+}
+
+/*estilo do botao de jogar*/
+.jogar,
+.jogar:after {
+    
+  top: 30%;
+  width: 150px;
+  height: 76px;
+  line-height: 78px;
+  background: linear-gradient(45deg, transparent 5%, #ff002b 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px #00E6F6;
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+/*animação do botao de jogar*/
+.jogar:after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  
+  content: 'JOGAR';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+/*efeito do botao de jogar*/
+.jogar:hover:after {
+  animation: 0.5s glitch;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(2, end);
+}
+
+/*efeito do botao de jogar*/
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+/*efeito do botao de jogar*/
+@media (min-width: 768px) {
+  .jogar,
+  .jogar:after {
+    width: 200px;
+    height: 86px;
+    line-height: 88px;
+  }
+}
+
+/*estilo do texto do botão de jogar*/
+#jogar{
+    color:white;
+    text-shadow: 3px 3px black ;
+    font-size: 20px;
+    font-weight: bold; 
+}
+
+/*estilo do botao de recarregar*/
+#recarregar{
+    position:relative;
+    margin-top:40%;
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+/*animação do botao de recarregar*/
+#recarregar:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/*cartas do jogador*/
+#carta{
+    position: relative;
+    display: inline-block;
+    background-image: url(blackjack/images/ACarta.jpg);
+    border-style:solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    width: 90px; 
+    height: 120px; 
+    margin-right:20px;
+    top: 20%; 
+}
+
+/*cartas do dealer*/
+#cartaDealer{
+    background-image: url(blackjack/images/ACarta.jpg);
+    display: inline-block;
+    position: relative;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    width: 90px; 
+    height: 120px; 
+    margin-right:20px;  
+}
+
+/*carta virada do dealer*/
+#cartaDealer2{
+    background-image: url(blackjack/images/cartavirada.jpg);
+    display: inline-block;
+    position: absolute;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    width: 90px; 
+    height: 120px; 
+    margin-right:20px; 
+}
+
+/*texto que mostra o número e o naipe das cartas*/
+#texto-carta{
+    text-align: center; 
+    margin-top: 50%; 
+    color: black;
+    font-weight: bold;
+}
+
+/*estilo do botao de pedir cartas*/
+#pedir{
+    position: absolute;
+    top: 85%;
+    right: 55%;
+    font-size: 16px;
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+/*animação do botao de pedir cartas*/
+#pedir:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/*estilo do botao de manter cartas*/
+#manter{
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  font-size: 16px;
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+/*animação do botao de manter cartas*/
+#manter:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/*pontuação do jogador*/
+#pontuacao{
+    position: absolute;
+    background-color: #c2fbd7;
+    top: 85%;
+    right: 75%;
+    height: 40px;  
+    width: 130px;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+/*pontuação do dealer*/
+#pontuacaoDealer{
+    position: absolute;
+    background-color: #c2fbd7;
+    bottom: 90%;
+    right: 75%;
+    height: 40px;  
+    width: 130px;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+} 
+
+/*estilo padrão da div que indica que o jogo acabou*/
+#fimDeJogo{
+    position: absolute;
+    background-color: green;
+    height: 40px;  
+    width: 180px;
+    border-style: solid; 
+    border-width: 2px; 
+    border-radius: 5px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 14px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;   
+}
+
+/*rodapé da página*/
+footer{
+    position:absolute;
+    top:1200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #111;
+    height: auto;
+    font-family: "Open Sans";
+    padding-top: 40px;
+    color: #fff;
+}
+
+/*conteúdo do rodapé da página*/
+.footer-content{
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+/*subtítulo do rodapé da página*/
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+/*parágrafos do rodapé da página*/
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+/*lista não organizada de ícones do rodapé da página*/
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+/*elementos da lista de ícones do rodapé da página*/
+.socials li{
+    margin: 0 10px;
+}
+/*hyperlink dos ícones do rodapé da página*/
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+/*efeito dos ícones do rodapé da página*/
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+/*efeito dos ícones do rodapé da página*/
+.socials a:hover i{
+    color: aqua;
+}
+/*base do rodapé da página*/
+.footer-bottom{
+    background: #000;
+    padding: 20px 0;
+    text-align: center;
+}
+/*texto da base do rodapé da página*/
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    /*text-transform: capitalize;*/
+}
+/*span do rodapé da página*/
+.footer-bottom span{
+    text-transform: capitalize;
+    opacity: .4;
+    font-weight: 200;
+}
+
+
+
+
+
+
