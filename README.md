@@ -17,7 +17,6 @@
 
 - [x] Implementação de HTML + CSS
 - [x] Implementação I.A (Dealer)
-- [ ] Implementação de um Ranking
 
 <h4 align="center"> 
 	🚧  Blackjack - Funcional 🚀 Em construção!  🚧
